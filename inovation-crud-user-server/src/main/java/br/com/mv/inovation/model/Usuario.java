@@ -2,14 +2,16 @@ package br.com.mv.inovation.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
+import javax.persistence.*;
+
+import org.hibernate.validator.constraints.Email;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
 	/**
@@ -19,9 +21,11 @@ public class Usuario implements Serializable {
 
 	@Id
 	@Column(updatable = false, nullable = false)
+	@Size(min = 0, max = 50)
+	@NotEmpty(message = "Login nao pode ser nulo.")
 	private String login;
 
-	@Size(min = 0, max = 50)
+	@Size(min = 0, max = 500)
 	private String senha;
 
 	@Size(min = 0, max = 100)

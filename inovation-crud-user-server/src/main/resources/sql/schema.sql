@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS usuario (
+  login VARCHAR(50) NOT NULL PRIMARY KEY,
+  senha VARCHAR(500),
+  email VARCHAR(50),
+  nome VARCHAR(100),
+  CONSTRAINT unq_email UNIQUE (email)
+);

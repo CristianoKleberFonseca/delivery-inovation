@@ -13,12 +13,12 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public Usuario save(@Validated Usuario usuario) {
+	public Usuario save(Usuario usuario) {
 		return this.usuarioRepository.save(usuario);
 	}
 	
-	public Usuario findById(String id) {
-		return this.usuarioRepository.findById(id).get();
+	public Usuario findById(@Validated String id) {
+		return this.usuarioRepository.findOne(id);
 	}
 
 }
